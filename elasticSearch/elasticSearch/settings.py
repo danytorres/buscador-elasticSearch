@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gestionPedidos',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'elasticSearch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["./elasticSearch/templates"], # Se pone la dirreccion de la carpeta donde estan tus plantillas
+        'DIRS': ["./elasticSearch/templates"], # Se pone la direccion de la carpeta donde estan tus plantillas
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

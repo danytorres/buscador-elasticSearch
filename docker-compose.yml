@@ -75,6 +75,8 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    volumes: 
+      - ./dataPostgresql/datadir:/var/lib/postgresql/data
 
 networks:
   elastic:

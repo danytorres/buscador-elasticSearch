@@ -3,6 +3,7 @@ import datetime
 from django.template import Template, Context
 from django.template import loader
 from django.shortcuts import render
+from gestionPedidos.models import Articulos
 
 def saludo(request): #primera vista
 
@@ -47,3 +48,21 @@ def bootstrap(request):
     # doc_externo = loader.get_template('principal.html')
     # documento = doc_externo.render()
     return render(request, "principal.html")
+
+def buscar(request):
+
+    if request.GET["prd"]:
+        # mensaje="Articulo buscado: %r"%request.GET["prd"]
+        producto = request.GET["prd"]
+
+        if len(producto)>20:
+            mensaje="Texto de busqueda demasiado largo"
+        else:
+
+            articulos = Articulos.objects.filter(nombre__icontains=producto)
+
+            return render(request, "resultado_busqueda.html", {"articulos":articulos, "query":producto})
+        
+    else:
+        mensaje = "No has introducido un valor"
+    return HttpResponse(mensaje)
