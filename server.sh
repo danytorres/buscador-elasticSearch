@@ -11,5 +11,5 @@ mkdir dataPostgresql
 cd dataPostgresql
 mkdir datadir
 cd ..
-sysctl -w vm.max_map_count=262144
+sudo sysctl -w vm.max_map_count=262144
 docker-compose up 
